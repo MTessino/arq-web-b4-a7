@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-md navbar-inverse navbar-background line-divider-bottom">
+  <button *ngIf="(usuarioActual | async)"
+          class="navbar-toggler navbar-toggler-right collapsed"
+          aria-controls="collapseExample"
+          type="button"
+          (click)="menuColapsado = !menuColapsado"
+          [attr.aria-expanded]="!menuColapsado"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#" (click)="clearLocalStorage()">
+    <img src="../../../assets/img/BGE-final.png" height="50">
+  </a>
+  <div *ngIf="(usuarioActual | async)"
+       id="collapseExample"
+       class="collapse navbar-collapse line-divider-top"
+       [ngbCollapse]="menuColapsado">
+
+    <div class="navbar-nav ml-auto">
+<!--
+      <a class="nav-item align-items-center nav-link" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/bandeja-prestamos']"
+         *ifPermission="'/bandeja-prestamos'">
+        <i class="material-icons">playlist_add_check</i>PRÉSTAMOS
+      </a>-->
+
+      <div class="nav-item out-borders align-items-center nav-link" ngbDropdown>
+        <button class="btn nav-item nav-link" type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" ngbDropdownToggle>
+          <i class="material-icons">people</i>USUARIOS
+        </button>
+        <div ngbDropdownMenu class="dropdown-menu dropdown-color multi-level" aria-labelledby="dd_evaluaciones">
+          <li><a class="dropdown-item"
+                 routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: true}"
+                 [routerLink]="['/usuarios']">USUARIOS
+          </a></li>
+          <li><a class="dropdown-item"
+                 routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: true}"
+                 [routerLink]="['/perfiles']">PERFILES
+          </a></li>
+        </div>
+      </div>
+
+      <span id="span_usuario" class="navbar-text d-flex align-items-center">
+        <img src="../../../assets/img/ico_ciudig32.png" alt="Logo Inicio Sesión">
+        {{usuario.nombre}} {{usuario.apellido}}
+      </span>
+    </div>
+  </div>
+</nav>

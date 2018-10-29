@@ -1,0 +1,63 @@
+<form [formGroup]="form">
+  <div class="card-pane">
+    <div class="row">
+      <!-- C O L 1/2 -->
+      <div class="col">
+        <div class="form-group row">
+          <label for="cb_persona" class="col-md-5 col-lg-5 col-xl-5 col-form-label">Persona:<span *ngIf="esRequerido(form.get('persona'))" class="required"> (*)</span></label>
+          <div class=" col-md-7 col-lg-7 col-xl-7" [errorFeedback]="form.get('persona')">
+            <select id="cb_persona"
+                    class="form-control"
+                    formControlName="persona">
+              <option value="null">
+                Seleccione
+              </option>
+              <option *ngFor="let persona of tiposPersona" [ngValue]="persona.id">
+                {{persona.descripcion | uppercase}}
+              </option>
+            </select>
+            <control-messages [control]="form.get('persona')"></control-messages>
+          </div>
+        </div>
+
+        <div class="form-group row"
+             [errorFeedback]="form.get('apellido')">
+          <label for="txt_apellido" class="col-md-5 col-lg-5 col-xl-5 col-form-label">Apellido:</label>
+          <div class=" col-md-7 col-lg-7 col-xl-7">
+            <input class="form-control"
+                   id="txt_apellido"
+                   formControlName="apellido"
+                   type="text">
+            <control-messages [control]="form.get('apellido')"></control-messages>
+          </div>
+        </div>
+      </div>
+      <div class="verticalLine"></div>
+      <!-- C O L 2/2 -->
+      <div class="col">
+        <div class="form-group row"
+             [errorFeedback]="form.get('cuil')">
+          <label for="txt_cuil" class="col-md-5 col-lg-5 col-xl-5 col-form-label">CUIL:</label>
+          <div class=" col-md-7 col-lg-7 col-xl-7">
+            <input class="form-control"
+                   id="txt_cuil"
+                   formControlName="cuil"
+                   type="text">
+            <control-messages [control]="form.get('cuil')"></control-messages>
+          </div>
+        </div>
+        <div class="form-group row"
+             [errorFeedback]="form.get('nombre')">
+          <label for="txt_nombre" class="col-md-5 col-lg-5 col-xl-5 col-form-label">Nombre:</label>
+          <div class=" col-md-7 col-lg-7 col-xl-7">
+            <input class="form-control"
+                   id="txt_nombre"
+                   formControlName="nombre"
+                   type="text">
+            <control-messages [control]="form.get('nombre')"></control-messages>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

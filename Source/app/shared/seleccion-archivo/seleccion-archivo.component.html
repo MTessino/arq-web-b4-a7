@@ -1,0 +1,16 @@
+<div class="form-group" [class.has-danger]="tipoNoAceptado">
+  <input hidden #fileInput id="btn_seleccionar_oculto" type="file" [attr.class]="buttonClass" [attr.accept]="accept"
+         (change)="onChange($event)" style="cursor: pointer"/>
+  <button *ngIf="esGrilla" type="button"
+          [ngClass]="buttonClass"
+          (click)="select()"
+          style="padding-top: 10px">
+    <i class="material-icons">{{icono}}</i>
+  </button>
+  <input *ngIf="!esGrilla" type="button" [attr.class]="buttonClass" id="btn_seleccionar"
+         style="font-size: 12px;" [attr.value]="texto" (click)="select()"/>
+  <div *ngIf="!esGrilla" class="form-control-feedback">
+    <span *ngIf="tipoNoAceptado">El tipo de archivo no está permitido. Tipos aceptados: {{accept}}</span>
+    <span *ngIf="archivoMuyGrande">El tamaño del archivo es mayor al máximo permitido de {{maxSize}} MB</span>
+  </div>
+</div>

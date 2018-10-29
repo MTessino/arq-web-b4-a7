@@ -1,0 +1,7 @@
+C:\Users\matia\Desktop\FP\Web\bin\Web.dll.config
+C:\Users\matia\Desktop\FP\Web\bin\Web.dll
+C:\Users\matia\Desktop\FP\Web\bin\Web.pdb
+C:\Users\matia\Desktop\FP\Web\obj\Debug\Web.csprojAssemblyReference.cache
+C:\Users\matia\Desktop\FP\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
+C:\Users\matia\Desktop\FP\Web\obj\Debug\Web.dll
+C:\Users\matia\Desktop\FP\Web\obj\Debug\Web.pdb
